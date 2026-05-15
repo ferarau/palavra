@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo das Palavras</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body id="body">
+
+    <div class="background-animation"></div>
+
+    <div class="container">
+
+        <h1>Jogo das Palavras</h1>
+
+        <p class="subtitle">
+            Descubra a palavra antes dos erros acabarem!
+        </p>
+
+        <!-- TELA INICIAL -->
+        <div id="setup-container">
+
+            <!-- NICKNAME -->
+            <input
+                type="text"
+                id="nickname-input"
+                placeholder="Digite seu nickname..."
+                onkeydown="iniciarJogo(event)"
+            >
+
+            <!-- NÍVEL -->
+            <select
+                id="level-input"
+                onkeydown="iniciarJogo(event)"
+            >
+                <option value="">
+                    Escolha o nível
+                </option>
+
+                <option value="facil">
+                    Fácil
+                </option>
+
+                <option value="medio">
+                    Médio
+                </option>
+
+                <option value="dificil">
+                    Difícil
+                </option>
+            </select>
+
+            <!-- BOTÃO -->
+            <button onclick="iniciarJogoPorBotao()">
+                Entrar
+            </button>
+
+        </div>
+
+        <!-- TELA DO JOGO -->
+        <div id="game-container" class="hidden">
+
+            <h2 id="player-display"></h2>
+
+            <!-- DICA -->
+            <div class="hint-box">
+                💡 Dica:
+                <span id="hint-display">...</span>
+            </div>
+
+            <!-- PALAVRA -->
+            <div id="word-display" class="word-slots"></div>
+
+            <!-- INPUT LETRA -->
+            <input
+                type="text"
+                id="letter-input"
+                maxlength="1"
+                placeholder="?"
+                onkeydown="tentarLetra(event)"
+            >
+
+            <!-- STATUS -->
+            <div class="status-info">
+
+                <p>
+                    Erros:
+                    <span id="error-count">0</span> / 4
+                </p>
+
+                <p id="game-message"></p>
+
+            </div>
+
+            <button
+                id="reset-btn"
+                class="hidden"
+                onclick="reiniciarJogo()"
+            >
+                Jogar Novamente
+            </button>
+
+        </div>
+
+        <footer>
+            Desenvolvido por <strong>Fernanda Araújo</strong>
+        </footer>
+
+    </div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
